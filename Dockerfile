@@ -39,7 +39,9 @@ RUN apt-get -qqy update && apt-get install -qqy \
     gcloud --version && \
     docker --version && kubectl version --client
 # Installing terraform
-RUN apt-get -y install unzip && \
+RUN apt-get update && \
+    apt-get -y install unzip && \
+    apt-get -y install curl && \
     cd /tmp && \
     curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.13.5/terraform_0.13.5_linux_amd64.zip && \
     unzip /tmp/terraform.zip && \
